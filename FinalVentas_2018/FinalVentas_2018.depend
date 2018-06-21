@@ -1,0 +1,54 @@
+# depslib dependency file v1.0
+1529509649 source:c:\users\catwoman\desktop\finalventas_2018\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1529509644 c:\users\catwoman\desktop\finalventas_2018\arraylist.h
+
+1529509717 source:c:\users\catwoman\desktop\finalventas_2018\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Controller.h"
+	"FCliente.h"
+	"Fventas.h"
+
+1529509668 c:\users\catwoman\desktop\finalventas_2018\controller.h
+
+1529509682 c:\users\catwoman\desktop\finalventas_2018\fcliente.h
+
+1529509697 c:\users\catwoman\desktop\finalventas_2018\fventas.h
+
+1529509727 source:c:\users\catwoman\desktop\finalventas_2018\fcliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"FCliente.h"
+
+1529509354 source:c:\users\catwoman\desktop\finalventas_2018\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+
+1529509354 c:\users\catwoman\desktop\finalventas_2018\funciones.h
+
+1529509745 source:c:\users\catwoman\desktop\finalventas_2018\fventas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Fventas.h"
+
+1529509760 source:c:\users\catwoman\desktop\finalventas_2018\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"FCliente.h"
+	"Fventas.h"
+
