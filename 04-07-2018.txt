@@ -1,0 +1,559 @@
+HD1583388___ 
+Cheques 65553316 - 65553340
+Cuenta 761971755
+DU 22225917
+---Buenas tardes, la chequera quedo activa en SAP. Favor de marcar como entregada en QH.
+
+UPDATE GAL.QHT20100_CHEQUERA          
+ SET ESTADO_CHEQUERA =  41           
+ WHERE NRO_CHEQUE_DESDE =65553316
+  AND NRO_CHEQUE_HASTA = 65553340     
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT11100                   
+ SET H_CODIGO_CONCEPTO =  41          
+ WHERE H_NUMERAC_DESDE = 65553316
+  AND H_NUMERAC_DESDE = 65553340  
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT10100                   
+  SET CODIGO_CONCEPTO =  41            
+ WHERE NUMERAC_DESDE = 65553316
+  AND NUMERAC_HASTA = 65553340  
+ ; COMMIT; 
+
+
+HD1596249---(PASARLO A SAP )
+CUIT 30-70802666-9 
+CC 242020987
+CHEQUERA: 81135051 hasta 81135150
+ 4867717. nro pedido 
+ .GAL.QHT10100 -> estado 25
+ QHT20100_CHEQUERA ->  estado 25
+
+ log ->secuencia 1-0 de error 801
+
+
+ UPDATE GAL.QHT20100_CHEQUERA          
+ SET ESTADO_CHEQUERA =  41           
+ WHERE NRO_CHEQUE_DESDE =81135051
+  AND NRO_CHEQUE_HASTA = 81135150        
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT11100                   
+ SET H_CODIGO_CONCEPTO =  41          
+ WHERE H_NUMERAC_DESDE = 81135051
+  AND H_NUMERAC_DESDE = 81135150       
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT10100                   
+  SET CODIGO_CONCEPTO =  41            
+ WHERE NUMERAC_DESDE = 81135051
+  AND NUMERAC_HASTA = 81135150      
+ ; COMMIT; 
+
+ HD1598238--
+solicita poder dar baja de una chequera
+CC: 137413072
+ch: 0020924161 al 0020924210
+
+GAL.QHT11100 -> nro pedido
+4839684  39-40(cod CODIGO_CONCEPTO) aparece una sucursal 5105
+
+
+GAL.QHT10100->  40 (codigo-concepto) 5105
+QHT20100_CHEQUERA->
+REBA00 y REEV00 -> aparece con la sucursal 307 
+
+UPDATE GAL.QHT20100_CHEQUERA          
+ SET ESTADO_CHEQUERA =  41           
+ WHERE NRO_CHEQUE_DESDE =20924161
+  AND NRO_CHEQUE_HASTA = 20924210         
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT11100                   
+ SET H_CODIGO_CONCEPTO =  41          
+ WHERE H_NUMERAC_DESDE = 20924161
+  AND H_NUMERAC_DESDE = 20924210        
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT10100                   
+  SET CODIGO_CONCEPTO =  41            
+ WHERE NUMERAC_DESDE = 20924161
+  AND NUMERAC_HASTA = 20924210     
+
+  
+   HD1591033--
+CUIT: 20118636547
+N° de cuenta: 19690051980
+N° de chequera: 3853651 hasta 3853675
+Fecha de pedido: 03/05/2018
+NRO. Pedido 4858909.
+QHT20100_CHEQUERA  -> estado 25 
+requerimeinto de sap pasar la chequera a estado entregado y derivar a desa-sap
+para verificar.. **
+
+ UPDATE GAL.QHT20100_CHEQUERA          
+ SET ESTADO_CHEQUERA =  41           
+ WHERE NRO_CHEQUE_DESDE =3853651
+  AND NRO_CHEQUE_HASTA = 3853675        
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT11100                   
+ SET H_CODIGO_CONCEPTO =  41          
+ WHERE H_NUMERAC_DESDE = 3853651
+  AND H_NUMERAC_DESDE = 3853675      
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT10100                   
+  SET CODIGO_CONCEPTO =  41            
+ WHERE NUMERAC_DESDE = 3853651
+  AND NUMERAC_HASTA = 3853675      
+ ; COMMIT; 
+
+
+HD1585222 ---
+
+cc 983790202 con 
+numeración desde 01448171 a 01448195 
+buenos días, la chequera de la cuenta N° 983790202 con numeración desde 01448171 a 01448195 me sigue sin aparecer para entregar...
+se ve que se hizo el qwery por solo una de las cuentas. (este es uno re abierto)
+
+UPDATE GAL.QHT20100_CHEQUERA          
+ SET ESTADO_CHEQUERA =  41           
+ WHERE NRO_CHEQUE_DESDE =01448171
+  AND NRO_CHEQUE_HASTA = 01448195      
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT11100                   
+ SET H_CODIGO_CONCEPTO =  41          
+ WHERE H_NUMERAC_DESDE = 01448171
+  AND H_NUMERAC_DESDE = 01448195 
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT10100                   
+  SET CODIGO_CONCEPTO =  41            
+ WHERE NUMERAC_DESDE = 01448171
+  AND NUMERAC_HASTA = 01448195 
+ ; COMMIT; 
+
+
+VO$ 052889 (04-07-2018)HD1585222- HD1591033- HD1598238 (pendiente) - HD1596249 -HD1583388 qh 
+VO$ 052882 (HD1599925--HD1599912) hs 
+
+Jueves 05-07-2018
+
+HD1601037-- VO$ 052901 
+Info al BCRA cc 2342-1 348-8
+Cuits a informar: 30715849719 y 20168417153 
+
+348	8	23421	20102289	29/05/2018	15000	1	COMPLETAR CUITS
+348	8	23421	20102281	19/06/2018	20000	1	COMPLETAR CUITS
+348	8	23421	20102280	11/06/2018	33500	1	COMPLETAR CUITS
+348	8	23421	20102275	28/05/2018	15000	1	COMPLETAR CUITS
+
+
+UPDATE GAL.REBA00                   
+SET DATOS_COMPLETOS  = 0 ,          
+CUIT_CUIL_1          = 30715849719,
+CUIT_CUIL_2          = 20168417153
+WHERE CASA           = 348         
+AND CUENTA           = 23421
+AND NUMERO_CHEQUE  IN ( 20102289,
+                        20102281,
+                        20102280,
+                        20102275 )  
+; commit;
+
+HD1595045 -- ONP
+
+6019449996 cc
+
+
+HD1601455--
+El usuario indica que no se encuentra una chequera 
+disponible para recepción en el listado de la aplicación "Recepcion de chequeras en Sucursal". 
+
+Cuenta 208802536
+Chequera 59794691 al 59794740
+GAL.QHT10100 
+GAL.QHT20100_CHEQUERA  AMBAS ESTADO 25
+
+
+HD1592372 --- VO$ 052907 qh
+verificar el status de la chequera? figura en 61 en la tabla DSP.GAL.QHT20100_CHEQUERA 
+y mirando la tabla historica DSP.GAL.QHT11100 se tienen 3 status, el 2017-12-18 
+se habría asignado el status y no se ha dado de baja la chequera.
+
+CC 5606-5 197-1
+N°42326381 al N°42326430.
+N PEDIDO 4691197
+ESTADO 61 EN DSP.GAL.QHT20100_CHEQUERA
+
+
+DSP.GAL.QHT11100 
+H_NRO_PEDIDO       H_NRO_CUENTA  H_CODIGO_CONCEPTO 
+---------+---------+---------+---------+---------+-
+    4691197.             56065.                39. 
+    4691197.             56065.                40. 
+    4691197.             56065.                61. 
+         
+61  NOVEDAD CHEQ. NO DESTRUIDA:
+1ER. VENCIM. A 30 DIAS (EXTENSION + 30 DIAS).
+
+
+ UPDATE GAL.QHT20100_CHEQUERA          
+ SET ESTADO_CHEQUERA =  66           
+ WHERE NRO_CHEQUE_DESDE =42326381
+  AND NRO_CHEQUE_HASTA = 42326430         
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT11100                   
+ SET H_CODIGO_CONCEPTO =  66          
+ WHERE H_NUMERAC_DESDE = 42326381
+  AND H_NUMERAC_DESDE = 42326430        
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT10100                   
+  SET CODIGO_CONCEPTO =  66            
+ WHERE NUMERAC_DESDE = 42326381
+  AND NUMERAC_HASTA = 42326430      
+ ; COMMIT;;
+
+
+HD1589052 ---
+Buenos días, de acuerdo a la solicitud del usuario, Pasivas realiza la validación de cantidad de chequeras?
+La cuenta 978710093(Pedido 4874722 - la chequera 47520276 a 47520300: tiene status 41 en QH y se encuentra ok en SAP) 
+TABLA  QHT10200  :  TABLA DE PEDIDOS BATCH                  
+TABLA  QHT20200  :  TABLA DE PEDIDOS ONLINE                 
+TABLA  QHT10100  :  TABLA DE CHEQUERAS BATCH                
+TABLA  QHT20100_CHEQUERA  :  TABLA DE CHEQUERAS ONLINE      
+TABLA  QHT10300  :  TABLA DE PARAMETROS DE CHEQUERAS        
+TABLA  QHA10300  :  TABLA DE SUCURSALES/ TIPOS DE CHEQUES/ *
+TABLA  QHT11200  :  TABLA DE PEDIDOS HISTORICOS             
+TABLA  QHT11100  :  TABLA DE CHEQUERAS EN HISTORICO
+
+VIERNES 06-07-08
+HD1593028-- QH  VO$ 052915 
+CC 49581066
+
+N° chequera 
+NRO_PEDIDO | NRO_CHEQUE_DESDE | NRO_CHEQUE_HASTA | CANT_CHEQUES | ESTADO_CHEQUERA | TMS_CHEQUERA 
+--------------------------------------------------------------------------------------------------------
+4868375 | 47230901 | 47230950 | 50 | 61 | 2018-06-30-01.09.47.000000
+4868375 | 47231001 | 47231050 | 50 | 61 | 2018-06-30-01.09.47.000000
+4868376 | 47231101 | 47231150 | 50 | 61 | 2018-06-30-01.09.47.000000
+4868376 | 47231151 | 47231200 | 50 | 61 | 2018-06-30-01.09.47.000000
+4868383 | 47221851 | 47221875 | 25 | 61 | 2018-06-30-01.09.47.000000
+
+
+
+   UPDATE GAL.QHT20100_CHEQUERA          
+    SET ESTADO_CHEQUERA =  41                           
+   where                                                           
+     nro_CHEQUE_DESDE = 47230901 AND nrO_CHEQUE_HASTA = 47230950 OR
+     nro_CHEQUE_DESDE = 47231001 AND nrO_CHEQUE_HASTA = 47231050 OR
+     nro_CHEQUE_DESDE = 47231101 AND nrO_CHEQUE_HASTA = 47231150 OR
+     nro_CHEQUE_DESDE = 47231151 AND nrO_CHEQUE_HASTA = 47231200 OR
+     nro_CHEQUE_DESDE = 47221851 AND nrO_CHEQUE_HASTA = 47221875   
+     ;COMMIT;                                                
+  UPDATE GAL.QHT11100                   
+  SET H_CODIGO_CONCEPTO =  41                           
+  H_NUMERAC_DESDE  = 47230901 AND H_NUMERAC_HASTA = 47230950 OR    
+  H_NUMERAC_DESDE  = 47231001 AND H_NUMERAC_HASTA = 47231050 OR    
+  H_NUMERAC_DESDE  = 47231101 AND H_NUMERAC_HASTA = 47231150 OR    
+  H_NUMERAC_DESDE  = 47231151 AND H_NUMERAC_HASTA = 47231200 OR    
+  H_NUMERAC_DESDE  = 47221851 AND H_NUMERAC_HASTA = 47221875       
+   ;COMMIT;                                                 
+    UPDATE GAL.QHT10100                   
+   SET CODIGO_CONCEPTO =  41                              
+    NUMERAC_DESDE  = 47230901 AND NUMERAC_HASTA = 47230950 OR      
+    NUMERAC_DESDE  = 47231001 AND NUMERAC_HASTA = 47231050 OR      
+    NUMERAC_DESDE  = 47231101 AND NUMERAC_HASTA = 47231150 OR      
+    NUMERAC_DESDE  = 47231151 AND NUMERAC_HASTA = 47231200 OR      
+    NUMERAC_DESDE  = 47221851 AND NUMERAC_HASTA = 47221875         
+      ;COMMIT;;                                               
+
+
+
+      HD1600761---
+
+CC 680620611 N° chequera: 47180536 - 47180585 
+
+CC 895550610 N° Chequera: 47129026 - 47129050
+
+ 680620611
+  select * from  GAL.QHT20100_CHEQUERA          
+    WHERE NRO_CHEQUE_DESDE =47180536
+  AND NRO_CHEQUE_HASTA = 47180585        
+ ; COMMIT;                             
+                                       
+select * from  GAL.QHT11100                   
+ WHERE H_NUMERAC_DESDE = 47180536
+  AND H_NUMERAC_DESDE = 47180585   
+ ; COMMIT;                             
+                                       
+ select * from GAL.QHT10100                     
+ WHERE NUMERAC_DESDE = 47180536
+  AND NUMERAC_HASTA = 47180585  
+ ; COMMIT;;
+      
+ 895550610
+select * from  GAL.QHT20100_CHEQUERA          
+    WHERE NRO_CHEQUE_DESDE =47129026
+  AND NRO_CHEQUE_HASTA = 47129050       
+ ; COMMIT;                             
+                                       
+select * from  GAL.QHT11100                   
+ WHERE H_NUMERAC_DESDE = 47129026
+  AND H_NUMERAC_DESDE = 47129050 
+ ; COMMIT;                             
+                                       
+ select * from GAL.QHT10100                     
+ WHERE NUMERAC_DESDE = 47129026
+  AND NUMERAC_HASTA = 47129050
+ ; COMMIT;;
+
+ --HD1600799
+
+ CUIT 30715704575
+CONDOMINIO RIVA CAROLINA Y OTROS
+CC 662951822
+
+Cliente de refrencia reclama ya que el el dia 29/05 se cobro una comisión por entrega de chequeras,
+ no hay ningún pedido realizado. Favor de verificar y proceder a la anulación del cargo.
+
+CC 662951822
+  Desde: 29 / 05 / 2018 Hasta: 06 / 07 / 2018   Pagina     1 de      5   
+  Fecha*Referencias---------**--Debitos---**---Creditos-**----Saldo----* 
+        SALDO AL 29-05-18                                      13.227,86 
+  29/05 COM. CHEQUERA                170,00                    13.057,86 
+  29/05 IVA-AUTOMATICO                35,70                    13.022,16 
+  29/05 IMP.DEB25413-AL.G              1,23                    13.020,93 
+
+
+
+---HD1603622
+CJMAE00 CJHI00
+  select * from dsp.gal.CJMAE00            
+   where cuenta = 60005436                 
+   and casa = 089                          
+    with ur;                               
+   select * from dsp.gal.CJHI00            
+    where cuenta = 60005436                
+     and casa = 089                        
+       with ur;;                           
+
+ UPDATE GAL.CJMAE00                                           
+    SET INDICADORES  = SUBSTR( INDICADORES ,  1, 12) || '1' ||    
+       SUBSTR(INDICADORES, 14 )                                   
+ WHERE CASA = 089                                                
+   AND CUENTA = 60005436  ;                                        
+ COMMIT ;     
+
+
+ HD1603738---    
+ Chequera numero: 47189386 al 47189435
+Cuenta 1155081725
+Al verificar , encuentra que no ha cambiado de estado                                                
+
+CAMBIAR ESTADO A 41
+uPDATE GAL.QHT20100_CHEQUERA          
+ SET ESTADO_CHEQUERA =  41          
+ WHERE NRO_CHEQUE_DESDE =47189386
+  AND NRO_CHEQUE_HASTA = 47189435         
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT11100                   
+ SET H_CODIGO_CONCEPTO =  41          
+ WHERE H_NUMERAC_DESDE = 47189386
+  AND H_NUMERAC_DESDE = 47189435       
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT10100                   
+  SET CODIGO_CONCEPTO = 41           
+ WHERE NUMERAC_DESDE = 47189386
+  AND NUMERAC_HASTA = 47189435      
+ ; COMMIT;;
+
+VO$ 052915   --HD1603738 --HD1593028 qh
+VO$ 052921              ---HD1603622 hs
+
+
+
+ MARTES --> 10/07/2018
+
+
+HD1603825---
+ha quedado con diferencia el rubro 382500-0 de suc 340 por $ 8.173,01. 
+corresponde a cierre de cuenta de fondo de desempleo nro 6.000093.0.340.8 
+rechazada. solicitamos verificar y normalizar.
+CJHI00
+
+
+
+ select * from dsp.gal.CJMAE00            
+   where cuenta =  60000930             
+   and casa = 340                          
+    with ur;    
+
+   ---------+---------+---------+---------+---------+---------+---------+---------+
+  CASA       CUENTA      CTA_UNI            SALDO      ACU_VAL_ACR      SAL_ULT_
+---------+---------+---------+---------+---------+---------+---------+---------+
+   340     60000930            0          8088.76              .00              
+   
+   RES        SAL_CAP_BAS            PRO_1            PRO_2            PRO_3  NUM_H
+---------+---------+---------+---------+---------+---------+---------+---------+
+.00        334.9596747              .00              .00              .00       
+
+IS  NUM_ULT_EXT  NUM_HOJ_RES  FEC_APER    FEC_MOV_ANT  FEC_ULT_RES  ESTADO  NUM_
+---------+---------+---------+---------+---------+---------+---------+---------+
+15            0            0  2017-07-28  0001-01-01   0001-01-01               
+
+
+                                                                      
+CAN_PEN_EXT  INDICADORES      
+---------+---------+---------+
+         14  00000000000000000---------+---------+---------+---------+---- 
+---------+---------+---------+---------+---------+---------+---------+
+0010000000000        0              .00  2018-06-27           1739.82 
+
+---------+---------+---------+
+ FEC_ULT_MOV         SAL_APER 
+---------+---------+---------+
+ 2018-06-27           1739.82 
+                                 
+ CUENTA_ASOC    
+-------+--------
+  274613401.    
+                
+
+                              
+
+   select * from dsp.gal.CJHI00            
+    where cuenta = 60000930             
+     and casa = 340                     
+       with ur;;     
+
+
+
+   HD1601455--> 
+   Cuenta 208802536
+  Chequera 59794691 al 59794740 
+
+
+   DSP.GAL.QHT10100 -> codig concepto 25
+
+   ---------+---------+---------+---------+---------+---------+---------+--------
+  NRO_PEDIDO         NRO_CUENTA  CODIGO_CONCEPTO  NUMERAC_DESDE  NUMERAC_HASTA
+---------+---------+---------+---------+---------+---------+---------+--------
+    4884957.             20880.              25.      59794691.      59794740.
+
+    FE_ULT_ACT        
+-------+---------+
+2018-07-03-22.34.2                         
+ 
+HD1602736--
+
+Chequera 711 a 260 de CC 586340681 de la ex suc 099 
+se encuentra recibida físicamente en suc 0327 pero no por sistema. 
+Cabe aclarar que estas dos sucursales se fusionaron. 
+
+
+  4886291.             58634.              11.      47842711.      47842760.  
+
+
+  UPDATE GAL.QHT20100_CHEQUERA          
+ SET NRO_SUC_ENTREGA = 327
+ WHERE NRO_PEDIDO =  4886291         
+ AND NRO_CHEQUE_DESDE = 47842711  AND NRO_CHEQUE_HASTA = 47842760     
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT11100                   
+ SET  H_SUCURSAL = 327
+ WHERE H_NRO_PEDIDO = 4886291         
+ AND H_NUMERAC_DESDE = 47842711 AND   H_NUMERAC_DESDE = 47842711
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT10100                   
+ SET SUCURSAL = 327           
+ WHERE NRO_PEDIDO =4886291
+ AND NUMERAC_DESDE = 47842711 AND   NUMERAC_DESDE = 47842711
+ ; COMMIT; 
+
+
+HD1605736--> VO$ 052934
+
+Cuits a informar: 30-71594187-9 - 23241110249
+
+Muchas gracias, saludos
+
+SI 308 42277 46884217 03/07/2018 26000,00 01 COMPLETAR CUITS 
+308 42277 47084161 06/07/2018 10000,00 01 COMPLETAR CUITS 
+308 42277 47084136 06/07/2018 5000,00 01 COMPLETAR CUITS
+SI 308 42277 46594385 03/07/2018 35000,00 01 COMPLETAR CUITS
+SI 308 42277 46594195 27/06/2018 30000,00 01 COMPLETAR CUITS
+
+UPDATE GAL.REBA00                          
+SET DATOS_COMPLETOS  = 0 ,                 
+CUIT_CUIL_1          = 30715941879,       
+CUIT_CUIL_2          = 23241110249         
+WHERE CASA           = 308                 
+AND CUENTA         = 42277                
+AND NUMERO_CHEQUE  in ( 46884217, 
+                        47084161, 
+                        47084136, 
+                        46594385, 
+                        46594195) 
+; COMMIT ;      
+
+HD1605761-->
+Cuits a informar:  30-71594188-7 - 20328241006
+
+Muchas gracias, saludos
+
+SI 308 43690 47084225 29/06/2018 30000,00 01 COMPLETAR CUITS 
+SI 308 43690 46594412 03/07/2018 13000,00 01 COMPLETAR CUITS 
+SI 308 43690 46594391 03/07/2018 28910,00 01 COMPLETAR CUITS 
+308 43690 46594395 26/06/2018 59000,00 01 COMPLETAR CUITS
+
+
+UPDATE GAL.REBA00                          
+SET DATOS_COMPLETOS  = 0 ,                 
+CUIT_CUIL_1          = 30715941887,       
+CUIT_CUIL_2          = 20328241006       
+WHERE CASA           = 308                 
+AND CUENTA         = 43690                
+AND NUMERO_CHEQUE  in ( 47084225,  
+                        46594412,  
+                        46594391,  
+                        46594395)  
+; COMMIT ;      
+
+HD1605821-->
+
+Cuits a informar: 30-71594189-5 - 20134660857
+
+Muchas gracias, saludos
+SI 308 43768 46884300 29/06/2018 15000,00 01 COMPLETAR CUITS 
+SI 308 43768 46884273 03/07/2018 8500,00 01 COMPLETAR CUITS 
+SI 308 43768 46670721 03/07/2018 25000,00 01 COMPLETAR CUITS 
+SI 308 43768 46670731 28/06/2018 30000,00 01 COMPLETAR CUITS
+
+
+UPDATE GAL.REBA00                          
+SET DATOS_COMPLETOS  = 0 ,                 
+CUIT_CUIL_1          = 30715941895,       
+CUIT_CUIL_2          = 20134660857       
+WHERE CASA           = 308                 
+AND CUENTA         = 43768                
+AND NUMERO_CHEQUE  in ( 46884300,
+                        46884273,
+                        46670721,
+                        46670731)
+                
+; COMMIT ;      
+
+
+
+VO$ 052934 HD1605821-HD1605761-HD1605736

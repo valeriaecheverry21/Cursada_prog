@@ -1,0 +1,1063 @@
+
+FEDE PERUZZA
+L0624845
+septie00  
+usuario de produccion loguearse con A
+usuario sistcol
+US: L0275697
+PS: JUNI2018 
+WALMAR
+DP22 WB072018  (loguearse con la opcion "a")  
+ev1v
+ed062018
+produ usser
+dp20
+ed062018
+
+
+
+------
+replace all   
+c 'pr.' 'dm.' all
+----
+para probar fechas por crt m
+----
+s1-> stage de un componete(jcl-source(SRC)-sql)
+s2->ingresar al paquete
+c1-> para hacer check out de un componente(bajar de produccion)
+
+*ingresar al spufi
+l bd 1.1 
+*para crear un paquete en cmna
+cmna .1.1
+*para entrar en un paqute 
+cmna 5 'poner el nor del paquete' ingresar con s2
+*para ingrsar a un alibreria o ve run fichero
+p.3.4
+*para ver los prestamos de Bc10->cics
+nro de cuenta o cliente (documento)
+c->cesn-> logon-> (usuario de windows)->bc10/sitcol-> nuro(cliente 
+*QMF ->
+L.BD.3(QMF)
+F6( CONSULTA)
++F2(RUN)
+
+------
+
+->libreria con spufi (para crear)
+er*.emer.pase(ev1vsele)
+-----
+
+librerias de produccion
+pr.base.bgba.*(jcl/src/cpy)
+
+
+p.1 ( para ver los programas)
+
+
+cuando aparece este error:
+ System abend '0E37' hay que comprimir la libreria
+con z 
+
+
+
+prestamamos->
+nro de operacion o numero de prestamo ...
+12 digitos , primeros 4 (alfanumericos o numero)
+
+si( el prestamo empieza con 8080)->son SAP
+
+
+IN -> sistcol -> dpr ( ALGO MAL reciclaje)
+
+-------
+
+
+
+uent
+
+
+estado de cancelacion -> aca- activado
+                         deb - debengando ( 
+                         rev -reversado ( volvio atras) 
+                         vef -verificacion
+
+
+una vez que ingresa el pago queda en estado vrf()
+luego tiene que activar elpago con el estado cvc
+
+nro de cheque 56806340
+fecha 09-05-2018
+
+
+revertir un frezado -> rv ( en un paquete ) cmna .5 
+
+para hacer un check out de un paquete
+
+
+
+numeros de cheque:
+58160345   17-10-2017
+5816346
+5816347   
+
+
+entro el spufi con
+l.bd.1.1
+er16.emer.pase(ev1vsele)
+er16.salida.ev1v
+
+
+UPDATE GAL.REEV00                   
+   SET FECHA_PAGO = '2017-11-10'    
+ WHERE NUMERO_CHEQUE =  
+   AND FECHA_PAGO = '2017-30-10' 
+;COMMIT;
+;COMMIT;   
+
+166759 0051
+657111587  
+
+WS-NRO-BCO-EMIS 
+
+comando de host -> para buscar en p.1 qh
+srchfor '....'
+
+usuario ondemand->
+L0624845
+septie00          
+
+
+numero de cuenta asociado para chequera formatearlo ->
+00 -000- folio +d1+d2
+chequera-> (14 posiciones) 
+ se rellena con 0's en la parte del folio
+
+
+ 00027000809854  
+ 8098-5 027-4
+ 00(moneda)+027(sucursal)+00080985(folio)+4(digito casa)
+00115005081725
+
+1572-49 042-8
+
+
+HD1583495 NO PUEDE CARGAR EL CUIT, PORQUE AL OTRO DIA SE BORRA, 
+HOY CARGARLE LOS CUITS, Y MODIFICAR EL CAMPO DATOS EN 0 PARA
+          VER SI SE MANDA EN EL ENVIO DE MAÑANA A LAS 12, SINO MANDARLO A MANO 
+
+njt1
+
+TABLA DE TRASNFERENCIAS COELSA A OTROS BANCOS 
+ DSP.GAL.HSATRAN00 
+  FECHA_PROCESO 2018-06-14
+  IMPORTE_COMI  46.731.00
+  
+  CUENTA_DEB 391470514
+  cuenta 391470514
+  importe 46.731.00
+  nr. operacion 58415498
+
+  delete -----
+  SELECT * FROM GAL.REBA00           
+ WHERE CASA   =  999               
+   AND CUENTA =  79684             
+WITH UR ;                          
+
+SELECT * FROM GAL.REEV00           
+ WHERE CASA   =  999               
+   AND CUENTA =  79684             
+WITH UR ;                          
+
+DELETE GAL.REBA00                  
+ WHERE CASA   =  999               
+   AND CUENTA =  79684 ;           
+COMMIT ;                           
+
+DELETE GAL.REEV00                  
+ WHERE CASA   =  999               
+   AND CUENTA =  79684 ;           
+COMMIT ;                            
+----// 
+
+UPDATE GAL.REEV00                
+  SET CUIT_CUIL_1 = 20328241006,
+      CUIT_CUIL_2 = 30715941887     
+ WHERE CASA = 308
+ AND CUENTA = 43690308
+    VO$ 052736 DEV 20180621 
+
+
+    UPDATE DSP.GAL.REBA00                 
+SET DATOS_COMPLETOS = 0          ,    
+    CUIT_CUIL_1     = 20328241006,    
+    CUIT_CUIL_2     = 30715941887     
+WHERE CASA           = 308            
+  AND CUENTA         = 43690          
+  AND NUMERO_CHEQUE  = 46594408;      
+COMMIT;                                
+
+
+Buenas Tardes!
+Analizamos este caso, y verificamos que el día 2018-06-06 a las 11.43hrs el legajo l0143065  modifico la chequera al estado "ENTREGA MAL IMPRESA O MAL ARMADA", lo cual provoco que nuestro sistema procesce la misma dejandola inhabilitada para su entrega. Desde sistemas no podemos modificar la misma para que puedan entregarla. Por favor solicitar una nueva chequera para el cliente.
+Saludos 
+
+
+-HD1572103 // delete 
+SELECT * FROM GAL.REBA00            
+   WHERE CASA   =  999                
+     AND CUENTA =  79684              
+  WITH UR ;
+
+  SELECT * FROM GAL.REEV00            
+   WHERE CASA   =  999                
+     AND CUENTA =  79684              
+  WITH UR ;
+
+  DELETE GAL.REBA00                   
+   WHERE CASA   =  999                
+     AND CUENTA =  79684 ;            
+  COMMIT ;   
+
+  DELETE GAL.REEV00                   
+   WHERE CASA   =  999                
+     AND CUENTA =  79684 ;            
+  COMMIT ;                            
+  --HD1582687 // set fechas                         
+  UPDATE GAL.REEV00                   
+     SET FECHA_PAGO = '2018-06-13'    
+   WHERE NUMERO_CHEQUE =  45159156    
+     AND FECHA_PAGO = '2018-06-18'    
+  ;COMMIT;                            
+
+--HD1583495 // set cuit                           
+UPDATE DSP.GAL.REBA00                 
+SET DATOS_COMPLETOS = 0          ,    
+CUIT_CUIL_1     = 20328241006,        
+CUIT_CUIL_2     = 30715941887         
+WHERE CASA           = 308            
+AND CUENTA         = 43690            
+  ;COMMIT;;
+
+UPDATE DSP.GAL.REEV00                 
+SET DATOS_COMPLETOS = 0              
+CUIT_CUIL_1     = 20328241006,        
+CUIT_CUIL_2     = 30715941887         
+WHERE CASA           = 308            
+AND CUENTA         = 43690            
+  ;COMMIT;;
+
+
+
+
+  SELECT * FROM DSP.GAL.REBA00             
+WHERE CASA           = 308               
+AND CUENTA         = 43690               
+WITH UR ;                                
+SELECT * FROM DSP.GAL.REEV00             
+WHERE CASA           = 308               
+AND CUENTA         = 43690               
+WITH UR ; ;
+
+
+
+  HD1584789 -> set cuit
+  ZMF.WKA.EV1V.ÑD484B21.Ñ18B77ED.SQL
+  VO$ 052746
+  437683082 cc
+  43768 308-2 
+
+
+
+er17.emer.pase(euvrsele)
+1798650895 
+VO$ 052746
+
+HD1582325
+809850274 CC
+Pedido: 4880755
+
+
+HD1549902
+381371238
+ fecha 03-05
+--HD1584789// SET CUIL              
+UPDATE DSP.GAL.REBA00               
+SET DATOS_COMPLETOS = 0          ,  
+CUIT_CUIL_1     = 30715941895,      
+CUIT_CUIL_2     = 30715941887       
+WHERE CASA           = 308          
+AND CUENTA         = 43768          
+  ;COMMIT;;                         
+--HD1587244 // SET CUIL             
+UPDATE GAL.REBA00                   
+SET DATOS_COMPLETOS  = 0 ,          
+CUIT_CUIL_1          = 20328241006, 
+CUIT_CUIL_2          = 30715941887  
+WHERE CASA           = 308          
+AND CUENTA         = 43690          
+AND NUMERO_CHEQUE  = 46594394       
+; COMMIT ;     
+
+VO$ 052746          
+
+
+PR.HS.LOG00.ONLINE.SAM.MENS.M1504.BACKUP
+p.3.4 ( entra sin el miembro)
+faid. 1.           
+
+
+HD1582440
+5164-0
+
+TABLA MAESTRO DE SUCURSALES
+TACA00
+TABLA DE TRANSACCIONES Y CMIS
+LBCO00 
+
+
+por sucursal 
+SELECT * FROM DSP.GAL.TACA00        
+WHERE CASA IN ( 250 )               
+WITH UR ;;                          
+
+
+
+HD1585824
+
+100151 236-3  cc
+33715884629 cuit
+cheques N° 45707230 $7000.- 12/06/2018 
+ N° 46553739 $5500.- 12/06/2018.
+ VO$ 052763 
+
+oki
+
+
+HD1582325
+qht20100_chequera y qht20200_pedido
+CUIT 30715176633
+CONSORCIO DE PROPIETARIOS CHACABUCO 966
+CC 809850274
+Pedido: 4880755
+que observamos que la chequera se ncuentra recepcionada en sucursal. En este caso la chequera ya esta en 25 
+
+
+HD1588402
+Al dar de baja chequera se verifica error: "No existen transiciones de status".
+
+Chequera numero: 47189386 al 47189435
+
+Cuenta 1155081725
+
+0049000632179
+ev2m 
+- ev2m0718 
+
+
+UPDATE GAL.REBA00                   
+SET DATOS_COMPLETOS  = 0 ,          
+CUIT_CUIL_1          = 33715884629
+WHERE CASA           = 236          
+AND CUENTA         = 100151        
+AND NUMERO_CHEQUE  = 45707230       
+; COMMIT ;     
+UPDATE GAL.REBA00                   
+SET DATOS_COMPLETOS  = 0 ,          
+CUIT_CUIL_1          = 33715884629
+WHERE CASA           = 236          
+AND CUENTA         = 100151        
+AND NUMERO_CHEQUE  = 46553739       
+; COMMIT ;;
+
+
+00009000978713
+
+HD1584092
+FECHA DE PAGO 29/05/2018
+CC 1141230715
+Cheque Rechazado N° 45002102
+Importe: $30.000
+
+
+Fecha*Referencias---------**--Debitos---**---Creditos-**----Saldo----* 
+      SALDO AL 17-04-18                                         412,06 
+17/04 CH. 48HS.45002107         10.000,00                    -9.587,94 
+17/04 CH. 48HS.45002111         15.752,07                   -25.340,01 
+17/04 CH. 48HS.45002102         30.000,00                   -55.340,01 
+17/04 AT.MUL.SF45002142                          875,10     -54.464,91 
+17/04 CH.RECHAZ/SF                            10.000,00     -44.464,91 
+17/04 COM.RECHAZ/SF                665,00                   -45.129,91 
+17/04 IVA-AUTOMATICO               139,65                   -45.269,56 
+17/04 CH.RECHAZ/SF                            15.752,07     -29.517,49 
+17/04 COM.RECHAZ/SF                665,00                   -30.182,49 
+
+HD1583303----
+392 3771 20615182 04/06/2018 2000 1 COMPLETAR CUITS
+392 3771 20615178 01/06/2018 2000 1 COMPLETAR CUITS
+392 3771 20615175 01/06/2018 3000 1 COMPLETAR CUITS
+392 3771 20615170 04/06/2018 7000 1 COMPLETAR CUITS
+392 3771 20470919 01/06/2018 10000 1 COMPLETAR CUITS
+392 3771 20615171 11/06/2018 7000 1 COMPLETAR CUITS
+392 3771 20615154 13/06/2018	10000 1 FALTA REPR.LEGAL
+392 3771 20470920 06/06/2018	10000 1 COMPLETAR CUITS
+392 3771 20378293 12/06/2018	3000	1 COMPLETAR CUITS
+
+30-71585403-8 cuit 
+23240930609 cuit 2
+
+qwerys
+
+UPDATE GAL.REBA00                   
+SET DATOS_COMPLETOS  = 0 ,          
+CUIT_CUIL_1          = 30715854038
+CUIT_CUIL_2          = 23240930609
+WHERE CASA           = 392          
+AND CUENTA         = 3771       
+AND NUMERO_CHEQUE  = 20615182      
+; COMMIT ;     
+UPDATE GAL.REBA00                   
+SET DATOS_COMPLETOS  = 0 ,          
+CUIT_CUIL_1          = 30715854038
+CUIT_CUIL_2          = 23240930609
+WHERE CASA           = 392          
+AND CUENTA         = 3771       
+AND NUMERO_CHEQUE  = 20615178      
+; COMMIT ;     
+UPDATE GAL.REBA00                   
+SET DATOS_COMPLETOS  = 0 ,          
+CUIT_CUIL_1          = 30715854038
+CUIT_CUIL_2          = 23240930609
+WHERE CASA           = 392          
+AND CUENTA         = 3771       
+AND NUMERO_CHEQUE  = 20615175     
+; COMMIT ;     
+UPDATE GAL.REBA00                   
+SET DATOS_COMPLETOS  = 0 ,          
+CUIT_CUIL_1          = 30715854038
+CUIT_CUIL_2          = 23240930609
+WHERE CASA           = 392          
+AND CUENTA         = 3771       
+AND NUMERO_CHEQUE  = 20615170      
+; COMMIT ;     
+UPDATE GAL.REBA00                   
+SET DATOS_COMPLETOS  = 0 ,          
+CUIT_CUIL_1          = 30715854038
+CUIT_CUIL_2          = 23240930609
+WHERE CASA           = 392          
+AND CUENTA         = 3771       
+AND NUMERO_CHEQUE  = 20470919      
+; COMMIT ;     
+UPDATE GAL.REBA00                   
+SET DATOS_COMPLETOS  = 0 ,          
+CUIT_CUIL_1          = 30715854038
+CUIT_CUIL_2          = 23240930609
+WHERE CASA           = 392          
+AND CUENTA         = 3771       
+AND NUMERO_CHEQUE  =  20615171     
+; COMMIT ;     
+UPDATE GAL.REBA00                   
+SET DATOS_COMPLETOS  = 0 ,          
+CUIT_CUIL_1          = 30715854038
+CUIT_CUIL_2          = 23240930609
+WHERE CASA           = 392          
+AND CUENTA         = 3771       
+AND NUMERO_CHEQUE  =  20615154    
+; COMMIT ;     
+UPDATE GAL.REBA00                   
+SET DATOS_COMPLETOS  = 0 ,          
+CUIT_CUIL_1          = 30715854038
+CUIT_CUIL_2          = 23240930609
+WHERE CASA           = 392          
+AND CUENTA         = 3771       
+AND NUMERO_CHEQUE  = 20470920      
+; COMMIT ;     
+UPDATE GAL.REBA00                   
+SET DATOS_COMPLETOS  = 0 ,          
+CUIT_CUIL_1          = 30715854038
+CUIT_CUIL_2          = 23240930609
+WHERE CASA           = 392          
+AND CUENTA         = 3771       
+AND NUMERO_CHEQUE  =  20378293    
+; COMMIT ;     
+
+VO$ 052769
+ZMF.WKA.EV2M.ÑD489C7A.Ñ00885A7.OUTLIST
+
+ CASA       CUENTA  NUMERO_INICIO  NUMERO_FINAL          IMPORTE  FEC_ALTA    IPO_ONP  ESTADO  PRIM_DOS_DIG  TIPO_CHEQUERA  TIPO_JUZGADO  
+
+
+
+ NRO_JUZGADO  NRO_SECRETARIA    NRO_CAUSA  MOTIVO_CAUSA  NRO_CLI_HOST  MONEDA  NRO_CAUSA_TXT   ID_BLOQUEO
+---HD1591478 (ticket 3)
+UPDATE GAL.REBA00                   
+SET DATOS_COMPLETOS  = 0 ,          
+CUIT_CUIL_1          = 30715807137 
+CUIT_CUIL_2          =  20124257698 
+WHERE CASA           = 88          
+AND CUENTA         = 58160       
+AND NUMERO_CHEQUE  =  59213716    
+; COMMIT ;     
+
+
+--- TICKET 1
+
+ INSERT INTO GAL.CCONP00                                                 
+VALUES ( 1, 141332, 40973563, 40973563, 4307.02, '2014-06-24', 0, 0, 0, 
+    0, '', 0, 0, 0, 'R', '', 1, '' );                                   
+COMMIT; ;
+
+VO$ 052794
+   INSERT INTO GAL.CCONP00                                                 
+ VALUES ( 1, 11912, 3890779, 3890779, 20000.00, '2018-06-08', 0, 0, 0, 
+    0, '', 0, 0, 0, 'A', '', 1, '', '000002145080' ); 
+    COMMIT; ; 
+-- TICKET 
+HD1584092 
+ 45002102 NOR. CHEQUE
+
+    USSER :
+    DP25
+    PASS
+    DP250718
+
+
+    30715807137 y 20124257698 
+    5816-0 088-8  cc
+    59213716
+
+
+    HD1581317-
+
+    4283-3 196-9
+
+HD1591545 // fondo de desempleo
+
+  UPDATE CJMAE00                                           
+    SET INDICADORES  = SUBSTR( INDICADORES ,  1, 12) || '0' ||    
+       SUBSTR(INDICADORES, 14 )                                   
+ WHERE CASA = 332                                                 
+   AND CUENTA = 60002801 ;                                        
+ COMMIT ;                                                         
+                                                                  
+ UPDATE CJMAE00                                           
+    SET INDICADORES  = SUBSTR( INDICADORES ,  1, 12) || '0' ||    
+       SUBSTR(INDICADORES, 14 )                                   
+ WHERE CASA = 332                                                 
+   AND CUENTA = 60001368 ;                                        
+ COMMIT ;                                                         
+                                                                  
+ UPDATE CJMAE00                                           
+    SET INDICADORES  = SUBSTR( INDICADORES ,  1, 12) || '0' ||    
+       SUBSTR(INDICADORES, 14 )                                   
+ WHERE CASA = 332                                                 
+   AND CUENTA = 60002992 ;                                        
+ COMMIT ;;                                                                                                                                                                              
+                        
+H_NUMERAC_DESDE IN (63597848   )  
+64059986 64059936 64072926 )
+H_NUMERAC_HASTA  IN(63597850    
+    63597850
+    64059985
+     64072950)
+
+ HD1593263--
+ C.C: 35971843
+Numero de chequera desde 59706881 hasta 59706930  -- esatdo 25
+
+
+
+cc 000037261843  pedido 0004875710   no conformado 25 
+cc 000037401841  pedido 0004878052   no conformado 11 INFORM.DEL PROVEEDOR RECIBIDA / PENDIENTE DE RECEPCION.
+cc 000038011840  pedido 0004888216   no confomado  11 INFORM.DEL PROVEEDOR RECIBIDA / PENDIENTE DE RECEPCION.
+
+HD1593356--
+373560851 CC
+cheque 59609667
+
+-> VO$ 052836 (29/06/2018) para HD1579699--HD1592136
+HD1579699 --
+1433520429  CC
+   CAMBIO DE ESTADO 
+47133776 al 47133825 (50 cheques) -> ESATDO 25
+47133726 al 47133775 (50 cheques) ->  ESATDO 25
+47133676 al 47133725 (50 cheques) -> ESTADO 25 
+
+UPDATE GAL.QHT20100_CHEQUERA          
+ SET ESTADO_CHEQUERA = 41              
+ WHERE NRO_CHEQUE_DESDE = 47133776
+  AND NRO_CHEQUE_HASTA = 47133825           
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT11100                   
+ SET H_CODIGO_CONCEPTO = 41            
+ WHERE H_NUMERAC_DESDE = 47133776
+  AND H_NUMERAC_DESDE = 47133825        
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT10100                   
+  SET CODIGO_CONCEPTO = 41              
+ WHERE NUMERAC_DESDE = 47133776
+  AND NUMERAC_HASTA = 47133825       
+ ; COMMIT;        
+-----
+
+ UPDATE GAL.QHT20100_CHEQUERA          
+ SET ESTADO_CHEQUERA = 41              
+ WHERE NRO_CHEQUE_DESDE = 47133726
+  AND NRO_CHEQUE_HASTA = 47133775           
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT11100                   
+ SET H_CODIGO_CONCEPTO = 41            
+ WHERE H_NUMERAC_DESDE = 47133726
+  AND H_NUMERAC_DESDE = 47133775        
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT10100                   
+  SET CODIGO_CONCEPTO = 41              
+ WHERE NUMERAC_DESDE = 47133726
+  AND NUMERAC_HASTA = 47133775      
+ ; COMMIT;       
+
+ ------     
+ UPDATE GAL.QHT20100_CHEQUERA          
+ SET ESTADO_CHEQUERA = 41              
+ WHERE NRO_CHEQUE_DESDE =47133676
+  AND NRO_CHEQUE_HASTA = 47133725          
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT11100                   
+ SET H_CODIGO_CONCEPTO = 41            
+ WHERE H_NUMERAC_DESDE = 47133676
+  AND H_NUMERAC_DESDE = 47133725        
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT10100                   
+  SET CODIGO_CONCEPTO = 41              
+ WHERE NUMERAC_DESDE = 47133676
+  AND NUMERAC_HASTA = 47133725       
+ ; COMMIT;                                                           
+
+ VERIFICACION
+   SELECT * FROM DSP.GAL.QHT20100_CHEQUERA       
+    WHERE NRO_CHEQUE_DESDE ='47133776'          
+     AND NRO_CHEQUE_HASTA ='47133825'           
+   WITH UR;                                     
+  SELECT * FROM DSP.GAL.QHT20100_CHEQUERA       
+    WHERE NRO_CHEQUE_DESDE ='47133726'          
+     AND NRO_CHEQUE_HASTA ='47133775'           
+   WITH UR;                                     
+   SELECT * FROM DSP.GAL.QHT20100_CHEQUERA      
+     WHERE NRO_CHEQUE_DESDE ='47133676'         
+      AND NRO_CHEQUE_HASTA ='47133725'          
+    WITH UR;;     
+
+----
+
+
+HD1592136-- ( enviar de vuelta nueva vo para hoy) VO$ 052866 nueva vo (03-07-2018)
+
+UPDATE GAL.REBA00                   
+SET DATOS_COMPLETOS  = 0 ,          
+CUIT_CUIL_1          = 33715810749,
+CUIT_CUIL_2          = 27300372959
+WHERE CASA           = 014          
+AND CUENTA         = 55376    
+AND NUMERO_CHEQUE  =  19817365   
+; COMMIT ;     
+
+UPDATE GAL.REBA00                   
+SET DATOS_COMPLETOS  = 0 ,          
+CUIT_CUIL_1          = 30715793942,
+CUIT_CUIL_2          = 20110302100
+WHERE CASA           = 042         
+AND CUENTA         = 168618
+AND NUMERO_CHEQUE  IN ( 44932449,
+                        44932444,
+                        44932443,
+                        44932450 )  
+; COMMIT ; 
+
+
+UPDATE GAL.REBA00                   
+SET DATOS_COMPLETOS  = 0 ,          
+CUIT_CUIL_1          = 30715834347,
+CUIT_CUIL_2          = 20247384767
+WHERE CASA           = 197         
+AND CUENTA         = 59507
+AND NUMERO_CHEQUE  IN ( 44757819,
+                        44757816,
+                        44757809,
+                        44757808 )  
+; COMMIT ; 
+
+=PR.HS.IMPUT.RESCATE.V4,me 
+
+
+HD1592703--
+hacer un alta de chequera !
+cta cte 378201025 
+cheques 464508091 al 46450915 entregada 09/04
+falta un caracter a la chequera
+
+
+
+HD1591033-- error no existe chequera 
+CUIT: 20118636547
+N° de cuenta: 19690051980
+N° de chequera: 3853651 hasta 3853675
+Fecha de pedido: 03/05/2018
+
+HD1592372 ---
+verificar el status de la chequera? figura en 61 en la tabla DSP.GAL.QHT20100_CHEQUERA 
+y mirando la tabla historica DSP.GAL.QHT11100 se tienen 3 status, el 2017-12-18 
+se habría asignado el status y no se ha dado de baja la chequera.
+
+CC 5606-5 197-1
+N°42326381 al N°42326430.
+N PEDIDO 4691197
+ESTADO 61 EN DSP.GAL.QHT20100_CHEQUERA
+
+
+DSP.GAL.QHT11100 
+H_NRO_PEDIDO       H_NRO_CUENTA  H_CODIGO_CONCEPTO 
+---------+---------+---------+---------+---------+-
+    4691197.             56065.                39. 
+    4691197.             56065.                40. 
+    4691197.             56065.                61. 
+         
+61  NOVEDAD CHEQ. NO DESTRUIDA:
+1ER. VENCIM. A 30 DIAS (EXTENSION + 30 DIAS).
+
+
+ UPDATE GAL.QHT20100_CHEQUERA          
+ SET ESTADO_CHEQUERA =  66           
+ WHERE NRO_CHEQUE_DESDE =42326381
+  AND NRO_CHEQUE_HASTA = 42326430         
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT11100                   
+ SET H_CODIGO_CONCEPTO =  66          
+ WHERE H_NUMERAC_DESDE = 42326381
+  AND H_NUMERAC_DESDE = 42326430        
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT10100                   
+  SET CODIGO_CONCEPTO =  66            
+ WHERE NUMERAC_DESDE = 42326381
+  AND NUMERAC_HASTA = 42326430      
+ ; COMMIT; 
+
+
+
+HD1595045--
+N° Cuenta: 6019449996
+Chequera: 3660841 al 3660865
+          3660841 -
+
+
+
+
+HD1597197---
+Nro de Cuenta: 890670642
+Cheques 65585151 - 65585175
+DSP.GAL.QHT10100   pedido esta en estado 25
+nro. pedido 4870144.
+
+
+HD1585222---
+
+DU 1082794
+CC 983790202
+Ch. Desde 01448171 Hasta 0148195
+1448171-1498195  en DSP.GAL.QHT11100 
+estado 41 
+
+
+CUI 30711646600  
+CC 974200201
+Ch desde 81247651 hasta 81248150
+esatdo 46 .QHT11100 CONFORME 24 HS – PENDIENTE DE RATIFICACION
+
+MARTES 03 /07/2018
+ HD1597774--
+
+ Cuits a informar: 30-71594187-9 - 23241110249
+SI 308 42277 46594193 22/06/2018 29700,00 01 COMPLETAR CUITS 
+SI 308 42277 46594377 26/06/2018 12295,00 01 COMPLETAR CUITS 
+4227-7 308-0 CC
+
+
+UPDATE GAL.REBA00                          
+SET DATOS_COMPLETOS  = 0 ,                 
+CUIT_CUIL_1          = 30715941879,        
+CUIT_CUIL_2          = 23241110249         
+WHERE CASA           = 308                 
+AND CUENTA         = 42277                 
+AND NUMERO_CHEQUE  =  46594193             
+; COMMIT ;                                 
+UPDATE GAL.REBA00                          
+SET DATOS_COMPLETOS  = 0 ,                 
+CUIT_CUIL_1          = 30715941879,        
+CUIT_CUIL_2          = 23241110249         
+WHERE CASA           = 308                 
+AND CUENTA         = 42277                 
+AND NUMERO_CHEQUE  =  46594377             
+; COMMIT ;;                                
+
+HD1596944--
+30-71594189-5 - 20134660857
+308 43768 46884311 29/06/2018 10000,00 01 COMPLETAR CUITS 
+SI 308 43768 46736955 22/06/2018 36400,00 01 COMPLETAR CUITS 
+308 43768 46736942 22/06/2018 57000,00 01 COMPLETAR CUITS 
+SI 308 43768 46670734 22/06/2018 29820,00 01 COMPLETAR CUITS
+
+UPDATE GAL.REBA00                   
+SET DATOS_COMPLETOS  = 0 ,          
+CUIT_CUIL_1          = 30715941895,
+CUIT_CUIL_2          = 20134660857
+WHERE CASA           = 308         
+AND CUENTA           = 43768
+AND NUMERO_CHEQUE  IN ( 46884311,
+                        46736955,
+                        46736942,
+                        46670734 )  
+--HD1596281
+45770627 corresponde 04-05-18
+45770641 corresponde 02-05-18
+cc 8233-2 039-2
+MODIFICACION DE FECHAS 
+
+
+
+
+--
+UPDATE GAL.REEV00                   
+   SET FECHA_PAGO = '2018-05-04'  
+ WHERE NUMERO_CHEQUE =  45770627
+   AND FECHA_PAGO = '2018-05-11' 
+;COMMIT;
+UPDATE GAL.REEV00                   
+   SET FECHA_PAGO = '2018-05-02'  
+ WHERE NUMERO_CHEQUE =  45770641
+   AND FECHA_PAGO = '2018-05-11' 
+;COMMIT;
+
+
+SELECT * FROM GAL.REBA00           
+ WHERE CASA   =  039              
+   AND CUENTA =  82332             
+WITH UR ;                          
+
+SELECT * FROM GAL.REEV00           
+ WHERE CASA   =  039              
+   AND CUENTA =  82332            
+WITH UR ;                          
+
+HD1549919--
+19/02 CH. 48HS.42782375 6.033,00 -6.295,07 
+19/02 CH. 48HS.44832064 15.825,00 -22.120,07 
+19/02 CH. 48HS.44832042 15.909,10 -38.029,17 
+19/02 CH.RECHAZ/SF 6.033,00 -31.996,17 
+19/02 COM.RECHAZ/SF 422,31 -32.418,48 
+19/02 IVA-AUTOMATICO 88,69 -32.507,17 
+19/02 CH.RECHAZ/SF 15.909,10 -16.598,07 
+19/02 COM.RECHAZ/SF 665,00 -17.263,07 
+19/02 IVA-AUTOMATICO 139,65 -17.402,72 
+19/02 CH.RECHAZ/SF 15.825,00 -1.577,72
+19/02 COM.RECHAZ/SF 665,00 -2.242,72
+19/02 IVA-AUTOMATICO 139,65 -2.382,37
+
+DU 32501728
+Cuenta 5287-2 034-3
+
+Se adjuntan las pantallas 
+
+miercoles 04-07-2018
+HD1598238(baja)
+HD1591033(consulta)
+HD1583388(INEXISTENCIA)
+HD1596249(BAJA)
+HD1595045*(onp)
+HD1593218 **(--este no entiendo un carajo )
+
+HD1598238--
+solicita poder dar baja de una chequera
+CC: 137413072
+ch: 0020924161 al 0020924210
+
+GAL.QHT11100 -> nro pedido
+4839684  39-40(cod CODIGO_CONCEPTO) aparece una sucursal 5105
+
+
+GAL.QHT10100->  40 (codigo-concepto) 5105
+QHT20100_CHEQUERA->
+REBA00 y REEV00 -> aparece con la sucursal 307 
+
+UPDATE GAL.QHT20100_CHEQUERA          
+ SET ESTADO_CHEQUERA =  41           
+ WHERE NRO_CHEQUE_DESDE =20924161
+  AND NRO_CHEQUE_HASTA = 20924210         
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT11100                   
+ SET H_CODIGO_CONCEPTO =  41          
+ WHERE H_NUMERAC_DESDE = 20924161
+  AND H_NUMERAC_DESDE = 20924210        
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT10100                   
+  SET CODIGO_CONCEPTO =  41            
+ WHERE NUMERAC_DESDE = 20924161
+  AND NUMERAC_HASTA = 20924210      
+ ; COMMIT; 
+
+
+
+HD1596249---
+CUIT 30-70802666-9 
+CC 242020987
+CHEQUERA: 81135051 hasta 81135150
+ 4867717. nro pedido 
+ .GAL.QHT10100 -> estado 25
+ QHT20100_CHEQUERA ->  estado 25
+
+ log ->secuencia 1-0 de error 801
+
+
+ UPDATE GAL.QHT20100_CHEQUERA          
+ SET ESTADO_CHEQUERA =  41           
+ WHERE NRO_CHEQUE_DESDE =81135051
+  AND NRO_CHEQUE_HASTA = 81135150        
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT11100                   
+ SET H_CODIGO_CONCEPTO =  41          
+ WHERE H_NUMERAC_DESDE = 81135051
+  AND H_NUMERAC_DESDE = 81135150       
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT10100                   
+  SET CODIGO_CONCEPTO =  41            
+ WHERE NUMERAC_DESDE = 81135051
+  AND NUMERAC_HASTA = 81135150      
+ ; COMMIT; 
+
+ HS ( SET CUIL ) 
+ HD1599925--- 
+ 
+  cc 4376-8 308-2
+   30-71594189-5 - 20134660857
+308 43768 46670730 03/07/2018 30000,00 01 COMPLETAR CUITS 
+308 43768 46884304 28/06/2018 20267,00 01 COMPLETAR CUITS 
+308 43768 46884294 27/06/2018 30000,00 01 COMPLETAR CUITS 
+308 43768 46736946 27/06/2018 35000,00 01 COMPLETAR CUITS
+
+UPDATE GAL.REBA00                          
+SET DATOS_COMPLETOS  = 0 ,                 
+CUIT_CUIL_1          = 30715941895,       
+CUIT_CUIL_2          = 20134660857        
+WHERE CASA           = 308                 
+AND CUENTA         = 43768                
+AND NUMERO_CHEQUE  = 46670730             
+; COMMIT ;  
+
+UPDATE GAL.REBA00                          
+SET DATOS_COMPLETOS  = 0 ,                 
+CUIT_CUIL_1          = 30715941895,       
+CUIT_CUIL_2          = 20134660857         
+WHERE CASA           = 308                 
+AND CUENTA         = 43768                
+AND NUMERO_CHEQUE  = 46884304            
+; COMMIT ;                               
+
+UPDATE GAL.REBA00                          
+SET DATOS_COMPLETOS  = 0 ,                 
+CUIT_CUIL_1          = 30715941895,       
+CUIT_CUIL_2          = 20134660857         
+WHERE CASA           = 308                 
+AND CUENTA         = 43768                
+AND NUMERO_CHEQUE  = 46884294             
+; COMMIT ;                               
+
+UPDATE GAL.REBA00                          
+SET DATOS_COMPLETOS  = 0 ,                 
+CUIT_CUIL_1          = 30715941895,       
+CUIT_CUIL_2          = 20134660857         
+WHERE CASA           = 308                 
+AND CUENTA         = 43768                
+AND NUMERO_CHEQUE  = 46736946             
+; COMMIT ;      
+
+
+HD1599912---
+cc 4227-7 308-0
+Cuits a informar: 30-71594187-9 - 23241110249
+
+Muchas gracias, saludos
+
+SI 308 42277 46594195 27/06/2018 30000,00 01 COMPLETAR CUITS                         
+
+
+UPDATE GAL.REBA00                          
+SET DATOS_COMPLETOS  = 0 ,                 
+CUIT_CUIL_1          = 30715941879,       
+CUIT_CUIL_2          = 23241110249         
+WHERE CASA           = 308                 
+AND CUENTA         = 42277                
+AND NUMERO_CHEQUE  = 46594195             
+; COMMIT ;      
+
+HD1591033--
+CUIT: 20118636547
+N° de cuenta: 19690051980
+N° de chequera: 3853651 hasta 3853675
+Fecha de pedido: 03/05/2018
+NRO. Pedido 4858909.
+QHT20100_CHEQUERA  -> estado 25 
+requerimeinto de sap pasar la chequera a estado entregado y derivar a desa-sap
+para verificar.. **
+
+ UPDATE GAL.QHT20100_CHEQUERA          
+ SET ESTADO_CHEQUERA =  41           
+ WHERE NRO_CHEQUE_DESDE =3853651
+  AND NRO_CHEQUE_HASTA = 3853675        
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT11100                   
+ SET H_CODIGO_CONCEPTO =  41          
+ WHERE H_NUMERAC_DESDE = 3853651
+  AND H_NUMERAC_DESDE = 3853675      
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT10100                   
+  SET CODIGO_CONCEPTO =  41            
+ WHERE NUMERAC_DESDE = 3853651
+  AND NUMERAC_HASTA = 3853675      
+ ; COMMIT; 
+
+
+HD1583388___ 
+Cheques 65553316 - 65553340
+Cuenta 761971755
+DU 22225917
+---Buenas tardes, la chequera quedo activa en SAP. Favor de marcar como entregada en QH.
+
+UPDATE GAL.QHT20100_CHEQUERA          
+ SET ESTADO_CHEQUERA =  41           
+ WHERE NRO_CHEQUE_DESDE =65553316
+  AND NRO_CHEQUE_HASTA = 65553340     
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT11100                   
+ SET H_CODIGO_CONCEPTO =  41          
+ WHERE H_NUMERAC_DESDE = 65553316
+  AND H_NUMERAC_DESDE = 65553340  
+ ; COMMIT;                             
+                                       
+ UPDATE GAL.QHT10100                   
+  SET CODIGO_CONCEPTO =  41            
+ WHERE NUMERAC_DESDE = 65553316
+  AND NUMERAC_HASTA = 65553340  
+ ; COMMIT; 
